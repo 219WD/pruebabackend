@@ -1,7 +1,7 @@
 const Usuario = require("../models/usuario");
 const Rol = require("../models/rol");
 const Categoria = require("../models/categoria");
-const Reserva = require("../models/Reserva");
+const Reserva = require("../models/reserva");
 
 //Funcion para validar usuario por el mail
 const esMailValido = async (correo) => {
