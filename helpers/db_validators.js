@@ -1,7 +1,7 @@
 const Usuario = require("../models/usuario");
 const Rol = require("../models/rol");
 const Categoria = require("../models/categoria");
-const Curso = require("../models/curso");
+const Reserva = require("../models/Reserva");
 
 //Funcion para validar usuario por el mail
 const esMailValido = async (correo) => {
@@ -39,12 +39,12 @@ const esCategoriaValido = async (id) => {
     }
 };
 
-//Curso existe?
-const esCursoValido = async (id) => {
-    const existeCurso = await Curso.findById(id);
+//Reserva existe?
+const esReservaValido = async (id) => {
+    const existeReserva = await Reserva.findById(id);
   
-    if (!existeCurso) {
-      throw new Error(`El Id ${id} no corresponde a un curso existente!`);
+    if (!existeReserva) {
+      throw new Error(`El Id ${id} no corresponde a una Reserva existente!`);
     }
   };
   
@@ -53,6 +53,6 @@ const esCursoValido = async (id) => {
     esRolValido,
     esIdValido,
     esCategoriaValido,
-    esCursoValido,
+    esReservaValido,
   };
   

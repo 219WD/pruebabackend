@@ -44,8 +44,7 @@ const login = async (req = request, res = response) => {
 
         res.json({
             msg: "Login OK",
-            // correo, // Eliminar al final del desarrollo
-            // password,
+            usuario,
             token,
         });
 

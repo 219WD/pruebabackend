@@ -20,8 +20,8 @@ class Server {
         //Path de categorias
         this.categoriasPath = "/api/categorias";
 
-        //Path de cursos
-        this.cursosPath = "/api/cursos";
+        //Path de reservas
+        this.reservasPath = "/api/reservas";
 
         //Buscar
         this.buscarPath = "/api/buscar";
@@ -62,8 +62,8 @@ class Server {
         this.app.use(this.usuarioPath, require("../routes/usuarios")); //Buscamos la ruta
         //Categorias
         this.app.use(this.categoriasPath, require("../routes/categorias"));
-        //Cursos
-        this.app.use(this.cursosPath, require("../routes/cursos"));
+        //Reservas
+        this.app.use(this.reservasPath, require("../routes/reservas"));
         //Buscador
         this.app.use(this.buscarPath, require("../routes/buscar"));
     }

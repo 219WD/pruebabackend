@@ -3,28 +3,28 @@ const { validarJWT } = require("../middlewares/validar_jwt");
 const { esAdminRole } = require("../middlewares/validar_roles");
 const { check } = require("express-validator");
 const { validarCampos } = require("../middlewares/validar_campos");
-const { esCursoValido } = require("../helpers/db_validators");
+const { esReservaValido } = require("../helpers/db_validators");
 
 const {
-  obtenerCursos,
-  obtenerCurso,
-  crearCurso,
-  actualizarCurso,
-  borrarCurso,
-} = require("../controllers/cursosCtrl");
+  obtenerReservas,
+  obtenerReserva,
+  crearReserva,
+  actualizarReserva,
+  borrarReserva,
+} = require("../controllers/reservasCtrl");
 
 const router = Router();
 
-router.get("/", obtenerCursos);
+router.get("/", obtenerReservas);
 
 router.get(
   "/:id",
   [
     check("id", "El id no es valido").isMongoId(),
-    check("id").custom(esCursoValido),
+    check("id").custom(esReservaValido),
     validarCampos,
   ],
-  obtenerCurso
+  obtenerReserva
 );
 
 //ruta post
@@ -36,7 +36,7 @@ router.post(
     check("nombre", "El nombre es obligatorio").notEmpty(),
     validarCampos,
   ],
-  crearCurso
+  crearReserva
 );
 
 router.put(
@@ -45,10 +45,10 @@ router.put(
     validarJWT,
     esAdminRole,
     check("id", "El id no es valido").isMongoId(),
-    check("id").custom(esCursoValido),
+    check("id").custom(esReservaValido),
     validarCampos,
   ],
-  actualizarCurso
+  actualizarReserva
 );
 
 router.delete(
@@ -57,10 +57,10 @@ router.delete(
     validarJWT,
     esAdminRole,
     check("id", "El id no es valido").isMongoId(),
-    check("id").custom(esCursoValido),
+    check("id").custom(esReservaValido),
     validarCampos,
   ],
-  borrarCurso
+  borrarReserva
 );
 
 module.exports = router;
