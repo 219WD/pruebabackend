@@ -54,7 +54,7 @@ const crearReserva = async (req = request, res = response) => {
     usuario: req.usuario._id,
   };
 
-  const reserva = new reserva(data);
+  const reserva = new Reserva(data);
 
   await reserva.save();
 
