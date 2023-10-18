@@ -70,7 +70,7 @@ const buscar = (req = request, res = response) => {
       buscarCategorias(termino, res);
       break;
     case "reservas":
-      buscarreservas(termino, res);
+      buscarReservas(termino, res);
       break;
 
     default:

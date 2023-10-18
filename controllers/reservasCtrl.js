@@ -60,7 +60,6 @@ const crearReserva = async (req = request, res = response) => {
 
   if (reserva) {
     res.status(201).json({
-      reserva,
       msg: "La reserva fue creada con exito!",
     });
   }
@@ -89,7 +88,6 @@ const actualizarReserva = async (req = request, res = response) => {
 
   res.status(201).json({
     msg: "Reserva actualizada!",
-    reserva,
   });
 };
 
