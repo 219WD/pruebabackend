@@ -55,7 +55,6 @@ const crearReserva = async (req = request, res = response) => {
   };
 
   const reserva = new Reserva(data);
-  
   await reserva.save();
 
   if (reserva) {
