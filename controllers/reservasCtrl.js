@@ -1,5 +1,5 @@
 const { response, request } = require("express");
-const reserva = require("../models/reserva");
+const Reserva = require("../models/reserva");
 
 const obtenerReservas = async (req = request, res = response) => {
   const { desde = 0, limite = 0 } = req.query;
@@ -23,7 +23,7 @@ const obtenerReservas = async (req = request, res = response) => {
 const obtenerReserva = async (req = request, res = response) => {
   const { id } = req.params;
 
-  const reserva = await reserva.findById(id)
+  const reserva = await Reserva.findById(id)
     .populate("usuario", "nombre")
     .populate("categoria", "nombre");
 
@@ -36,7 +36,7 @@ const crearReserva = async (req = request, res = response) => {
   const { precio, categoria, img, descripcion } = req.body;
   const nombre = req.body.nombre.toUpperCase();
 
-  const reservaDB = await reserva.findOne({ nombre });
+  const reservaDB = await Reserva.findOne({ nombre });
 
   if (reservaDB) {
     res.status(400).json({
@@ -55,7 +55,7 @@ const crearReserva = async (req = request, res = response) => {
   };
 
   const reserva = new Reserva(data);
-
+  
   await reserva.save();
 
   if (reserva) {
@@ -84,23 +84,25 @@ const actualizarReserva = async (req = request, res = response) => {
     data.nombre = req.body.nombre.toUpperCase();
   }
 
-  const reserva = await reserva.findByIdAndUpdate(id, data, { new: true });
+  const reserva = await Reserva.findByIdAndUpdate(id, data, { new: true });
 
   res.status(201).json({
     msg: "Reserva actualizada!",
+    reserva,
   });
 };
 
 const borrarReserva = async (req = request, res = response) => {
   const { id } = req.params;
 
-  const reservaEliminado = await reserva.findByIdAndUpdate(
+  const reservaEliminado = await Reserva.findByIdAndUpdate(
     id,
     { estado: false },
     { new: true }
   );
 
   res.json({
+    reserva,
     msg: `Reserva eliminada! - ${reservaEliminado}`,
   });
 };

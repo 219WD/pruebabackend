@@ -1,40 +1,31 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model } = require("mongoose"); 
 
 const ReservaSchema = Schema({
-  nombre: {
-    type: String,
-    required: [true, "El nombre es obligatorio"],
+  nombre: { 
+    type: String, 
+    required: [true, "El nombre es obligatorio!"], 
     unique: true,
-  },
-  estado: {
-    type: Boolean,
+  }, 
+  usuario: { 
+    type: Schema.Types.ObjectId, 
+    ref: "Usuario", 
     required: true,
-    default: true,
-  },
-  usuario: {
-    type: Schema.Types.ObjectId,
-    ref: "Usuario",
+  }, 
+  categoria: { 
+    type: Schema.Types.ObjectId, 
+    ref: "Categoria", 
     required: true,
-  },
-  precio: {
+  }, 
+  fecha: { 
+    type: Date,
+  }, 
+  precio: { 
     type: Number,
-    default: 0,
+  }, 
+  personas: { 
+    type: Number, 
+    default: 1,
   },
-  categoria: {
-    type: Schema.Types.ObjectId,
-    ref: "Categoria",
-    required: true,
-  },
-  descripcion: {
-    type: String,
-  },
-  img: {
-    type: String,
-  },
-  destacado: {
-    type: Boolean,
-    default: false,
-  },
-});
+}); 
 
 module.exports = model("Reserva", ReservaSchema);
