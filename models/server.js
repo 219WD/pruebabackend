@@ -52,14 +52,14 @@ class Server {
         this.app.use(express.json());
 
         //Mostrar archivos publicos
-        this.app.use(express.static("public")); //archivos que no varian en el backend
+        this.app.use(express.static("public")); 
     }
 
     routes() {
         //auth.js
         this.app.use(this.authPath, require("../routes/auth"));
         // usuario.js
-        this.app.use(this.usuarioPath, require("../routes/usuarios")); //Buscamos la ruta
+        this.app.use(this.usuarioPath, require("../routes/usuarios"));
         //Categorias
         this.app.use(this.categoriasPath, require("../routes/categorias"));
         //Reservas
@@ -76,4 +76,4 @@ class Server {
     }
 }
 
-module.exports = Server; //Esta linea dice que este archivo se puede exportar y usarse en otro lado
+module.exports = Server;

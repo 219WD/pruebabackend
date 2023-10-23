@@ -6,8 +6,8 @@ const obtenerReservas = async (req = request, res = response) => {
   const query = { estado: true };
 
   const [total, reservas] = await Promise.all([
-    reserva.countDocuments(query),
-    reserva.find(query)
+    Reserva.countDocuments(query),
+    Reserva.find(query)
       .skip(Number(desde))
       .limit(Number(limite))
       .populate("usuario", "nombre")
@@ -101,7 +101,7 @@ const borrarReserva = async (req = request, res = response) => {
   );
 
   res.json({
-    reserva,
+    reservaEliminado,
     msg: `Reserva eliminada! - ${reservaEliminado}`,
   });
 };
