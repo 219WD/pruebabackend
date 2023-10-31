@@ -33,7 +33,7 @@ const obtenerReserva = async (req = request, res = response) => {
 };
 
 const crearReserva = async (req = request, res = response) => {
-  const { precio, categoria, img, descripcion } = req.body;
+  const { precio, categoria, fecha, hora, personas } = req.body;
   const nombre = req.body.nombre.toUpperCase();
 
   const reservaDB = await Reserva.findOne({ nombre });
@@ -47,10 +47,11 @@ const crearReserva = async (req = request, res = response) => {
   const data = {
     nombre,
     categoria,
+    estado,
+    fecha,
+    hora,
     precio,
-    img,
-    descripcion,
-    img,
+    personas,
     usuario: req.usuario._id,
   };
 
@@ -66,16 +67,16 @@ const crearReserva = async (req = request, res = response) => {
 
 const actualizarReserva = async (req = request, res = response) => {
   const { id } = req.params;
-  const { precio, categoria, descripcion, img, destacado } = req.body;
+  const { precio, categoria, fecha, hora, personas } = req.body;
 
   const usuario = req.usuario._id;
 
   const data = {
     precio,
-    descripcion,
     categoria,
-    img,
-    destacado,
+    fecha,
+    hora,
+    personas,
     usuario,
   };
 
