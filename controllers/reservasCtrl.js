@@ -42,12 +42,13 @@ const crearReserva = async (req = request, res = response) => {
     res.status(400).json({
       msg: `La reserva ${reservaDB.nombre} ya existe`,
     });
+    return;
   }
 
   const data = {
     nombre,
     categoria,
-    estado,
+    estado: true,
     fecha,
     hora,
     precio,
