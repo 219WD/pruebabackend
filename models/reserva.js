@@ -19,15 +19,15 @@ const ReservaSchema = Schema({
   estado: {
     type: Boolean,
     default: true,
-    requiered: true,
+    required: true,
   },
   fecha: { 
     type: Date,
-    requiered: true,
+    required: true,
   },
   hora: {
     type: String,
-    requiered: true,
+    required: true,
   },
   precio: { 
     type: Number,
