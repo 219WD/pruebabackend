@@ -36,12 +36,7 @@ class Server {
         this.routes();
     }
 
-    //Base de Datos
-    async conectarDB() {
-        await dbConnection();
-    }
-
-
+    
 
 
     middlewares() {
@@ -56,6 +51,11 @@ class Server {
 
         //Mostrar archivos publicos
         this.app.use(express.static("public"));
+    }
+
+    //Base de Datos
+    async conectarDB() {
+        await dbConnection();
     }
 
     routes() {
