@@ -45,14 +45,14 @@ class Server {
         //Recibir datos .json
         this.app.use(express.json());
 
-        this.app.use(express.urlenconded({extended:true}));
+        // this.app.use(express.urlenconded({extended:true}));
 
         //Mostrar archivos publicos
         this.app.use(express.static("public")); 
     }
 
 
-    
+
     //Base de Datos
     async conectarDB() {
         await dbConnection();
