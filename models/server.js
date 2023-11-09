@@ -26,6 +26,7 @@ class Server {
         //Buscar
         this.buscarPath = "/api/buscar";
 
+
         //Middlewares
         this.middlewares();
 
@@ -52,6 +53,7 @@ class Server {
         //Mostrar archivos publicos
         this.app.use(express.static("public"));
     }
+
 
     //Base de Datos
     async conectarDB() {
