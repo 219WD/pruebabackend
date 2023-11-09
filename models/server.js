@@ -7,7 +7,7 @@ const cors = require("cors");
 const { dbConnection } = require("../database/config");
 
 class Server {
-    constructor() { //Aloja a todas las dependencias que llamamos
+    constructor() {
         this.app = express(); //En este caso solo a express
 
         this.port = process.env.PORT; //Puerto
@@ -26,17 +26,17 @@ class Server {
         //Buscar
         this.buscarPath = "/api/buscar";
 
-        //Base de datos
-        this.conectarDB();
-
         //Middlewares
         this.middlewares();
+
+        //Base de datos
+        this.conectarDB();
 
         //Rutas
         this.routes();
     }
 
-    
+
 
 
     middlewares() {
@@ -47,7 +47,7 @@ class Server {
         //Recibir datos .json
         this.app.use(express.json());
 
-        this.app.use(express.urlenconded({ extended: true });
+        this.app.use(express.urlencoded({ extended: true });
 
         //Mostrar archivos publicos
         this.app.use(express.static("public"));
