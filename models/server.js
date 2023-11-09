@@ -47,6 +47,7 @@ class Server {
 
         this.app.use(express.urlenconded({extended:true}));
 
+        
         //Mostrar archivos publicos
         this.app.use(express.static("public")); 
     }
