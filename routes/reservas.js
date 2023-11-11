@@ -32,7 +32,6 @@ router.post(
   "/",
   [
     validarJWT,
-    esAdminRole,
     check("nombre", "El nombre es obligatorio").notEmpty(),
     validarCampos,
   ],
