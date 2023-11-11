@@ -6,13 +6,6 @@ const { generarJWT } = require("../helpers/generarJWT");
 const login = async (req = request, res = response) => {
     const { correo, password } = req.body;
 
-    // Verificar si se proporciona correo y contraseña
-    if (!correo || !password) { //Este lo agregue yo xd
-        return res.status(400).json({
-            msg: "Correo y contraseña son requeridos",
-        });
-    }
-
     try {
         const usuario = await Usuario.findOne({ correo });
 
@@ -44,8 +37,8 @@ const login = async (req = request, res = response) => {
 
         res.json({
             msg: "Login OK",
-            usuario,
             token,
+            usuario,
         });
 
     } catch (error) {

@@ -59,11 +59,12 @@ const crearReserva = async (req = request, res = response) => {
   const reserva = new Reserva(data);
   await reserva.save();
 
-  if (reserva) {
-    res.status(201).json({
-      msg: "La reserva fue creada con exito!",
-    });
-  }
+  res.status(201).json({
+    msg: "La reserva fue creada con exito!",
+  });
+
+
+
 };
 
 const actualizarReserva = async (req = request, res = response) => {
