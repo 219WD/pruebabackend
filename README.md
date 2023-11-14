@@ -1,4 +1,4 @@
-# Friky Sanguchería
+# Vesubio Resto
 
 Proyecto Final integrador de Rolling Code School: Restaurante Vesubio. En este proyecto, hemos creado una aplicación completa que simula un restaurante virtual. El backend de esta aplicación está desarrollado utilizando Node.js y MongoDB para gestionar los datos.
 
